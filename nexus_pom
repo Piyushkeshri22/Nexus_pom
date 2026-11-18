@@ -1,0 +1,41 @@
+Add below below-mentioned distribution management content to the file after 
+</build> and before </project> 
+
+<distributionManagement>
+   <repository>
+        <id>nexus-releases</id>
+        <url>http://13.208.173.70:8081/repository/maven-releases/</url>    # replace this url, get it  from nexus repo
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://13.208.173.70:8081/repository/maven-snapshots/</url> # replace this url, get it from nexus repo 
+    </snapshotRepository>
+</distributionManagement>
+
+----------------------------------------------------------------------------------------
+Go to .m2 folder and create file settings.xml  and add below mentioned content
+
+nano settings.xml
+Add below mentioned content into that file
+Enter nexus repository username and password
+
+<settings> 
+  <servers>
+        <!-- For releasing to Nexus -->
+        <server>
+            <id>nexus-releases</id>
+            <username>your-nexus-username</username>
+            <password>your-nexus-password</password>
+        </server>
+
+        <!-- For snapshot deployments -->
+        <server>
+            <id>nexus-snapshots</id>
+            <username>your-nexus-username</username>
+            <password>your-nexus-password</password>
+        </server>
+    </servers>
+</settings>
+
+
+
